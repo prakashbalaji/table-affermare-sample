@@ -2,16 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>cucumber-jvm-plugin</artifactId>
-        <groupId>cucumber-jvm-plugin</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
 
     <artifactId>table-affermare-sample</artifactId>
+    <groupId>table-affermare-sample</groupId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <dropwizard.version>0.7.0</dropwizard.version>
@@ -57,41 +54,46 @@
             <version>9.0-801.jdbc4</version>
         </dependency>
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.33</version>
+        </dependency>
+
 
         <dependency>
             <groupId>cucumber-jvm-plugin</groupId>
-            <artifactId>json-affermare</artifactId>
+            <artifactId>spring-table-affermare</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
+            <scope>test</scope>
         </dependency>
 
-        <dependency>
+        <!-- Un comment to and comment above spring table affermare to test out if table assertions are working for jdbi code-->
+        <!--<dependency>
             <groupId>cucumber-jvm-plugin</groupId>
             <artifactId>jdbi-table-affermare</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
+            <scope>test</scope>
+        </dependency>-->
+
+        <dependency>
+            <groupId>cucumber-jvm-plugin</groupId>
+            <artifactId>jersey-client-json-affermare</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.1.4.RELEASE</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-jdbi</artifactId>
             <version>${dropwizard.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cucumber-jvm-plugin</groupId>
-            <artifactId>jersey-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

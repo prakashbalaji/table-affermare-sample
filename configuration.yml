@@ -1,10 +1,24 @@
 dummy: abc
 libraryDBConfig:
-  driverClass: org.postgresql.Driver
-  user: postgres
-  password: pass
-  url: jdbc:postgresql://localhost:5432/table_affermare
+#  Uncomment this and comment out mysql driver if you want to test against mysql. The drivers of both are included in pom.
+#  driverClass: org.postgresql.Driver
+#  user: postgres
+#  password: pass
+#  url: jdbc:postgresql://localhost:5432/table_affermare
+
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password:
+  url: jdbc:mysql://localhost:3306/table_affermare
   validationQuery: select 1
   initialSize: 2
   minSize: 2
   maxSize: 8
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 19000
+  adminConnectors:
+  - type: http
+    port: 19001

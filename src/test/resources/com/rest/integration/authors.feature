@@ -5,7 +5,7 @@ Feature: Authors
     Then I start server
 
   Scenario: Verify table after post
-    Then I make a POST to "authors/123.json" with data
+    Then I make a POST to "authors/123.json" with body
       | {                       |
       | "id": 123,              |
       | "name": "Martin Fowler" |
@@ -17,13 +17,13 @@ Feature: Authors
 
 
   Scenario: Verify table after put
-    Then I make a POST to "authors/123.json" with data
+    Then I make a POST to "authors/123.json" with body
       | {                       |
       | "id": 123,              |
       | "name": "Martin Fowler" |
       | }                       |
 
-    Then I make a PUT to "authors/123.json" with data
+    Then I make a PUT to "authors/123.json" with body
       | {                       |
       | "id": 123,              |
       | "name": "martin fowler" |
@@ -35,7 +35,7 @@ Feature: Authors
 
 
   Scenario: Verify table after delete
-    Then I make a POST to "authors/123.json" with data
+    Then I make a POST to "authors/123.json" with body
       | {                       |
       | "id": 123,              |
       | "name": "Martin Fowler" |
@@ -43,17 +43,17 @@ Feature: Authors
 
     Then I make a DELETE to "authors/123.json"
 
-    Then I verify table "authors" is empty
+    Then I verify that the table "authors" is empty
 
 
   Scenario: Verify table entries for order
-    Then I make a POST to "authors/123.json" with data
+    Then I make a POST to "authors/123.json" with body
       | {                       |
       | "id": 123,              |
       | "name": "Martin Fowler" |
       | }                       |
 
-    Then I make a POST to "authors/124.json" with data
+    Then I make a POST to "authors/124.json" with body
       | {                   |
       | "id": 124,          |
       | "name": "Kent Beck" |
